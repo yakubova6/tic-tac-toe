@@ -78,10 +78,19 @@ body {
     border-radius: 16px;
     border: 5px solid var(--color-border);
     background-color: var(--color-background-section);
+    text-align: center;
 }
 
 .grid__cell,
 .content__button {
     padding: 0;
     margin: 0;
+}
+
+.button_type_result {
+    letter-spacing: 2px;
+}
+
+.button_type_restart {
+    letter-spacing: 1.7px;
 }
