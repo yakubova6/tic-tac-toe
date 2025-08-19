@@ -68,6 +68,8 @@ body {
     height: 144px;
     border-radius: 16px;
     box-shadow: 10px 10px 0 0 var(--color-shadow-cell);
+    border: none;
+    outline: none;
 }
 
 .content__button {
@@ -78,3 +80,8 @@ body {
     background-color: var(--color-background-section);
 }
 
+.grid__cell,
+.content__button {
+    padding: 0;
+    margin: 0;
+}
