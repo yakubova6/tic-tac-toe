@@ -5,13 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="db045ed5-2c8d-42fd-8507-17ae2c876890" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/js/script.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -33,7 +42,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/projects-shtorm/tic-tac-toe/css&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/projects-shtorm/test-js&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -57,6 +66,13 @@
       <updated>1755628986741</updated>
       <workItem from="1755628987766" duration="5191000" />
       <workItem from="1755634326943" duration="1627000" />
+      <workItem from="1756194738673" duration="900000" />
+      <workItem from="1756302605698" duration="1000" />
+      <workItem from="1756304568357" duration="10000" />
+      <workItem from="1758883698347" duration="773000" />
+      <workItem from="1758978401387" duration="4816000" />
+      <workItem from="1759008179250" duration="1491000" />
+      <workItem from="1759054391405" duration="8066000" />
     </task>
     <servers />
   </component>

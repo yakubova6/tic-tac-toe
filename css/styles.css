@@ -4,6 +4,8 @@
     --color-background-cell: #17A88B;
     --color-shadow-cell: #212121;
     --color-border: black;
+    --color-preview-x: #B00020;
+    --color-preview-o: #1E4B7A;
 }
 
 * {
@@ -62,7 +64,6 @@ body {
 
 .grid__cell {
     position: relative;
-    display: flex;
     background-color: var(--color-background-cell);
     width: 144px;
     height: 144px;
@@ -70,7 +71,59 @@ body {
     box-shadow: 10px 10px 0 0 var(--color-shadow-cell);
     border: none;
     outline: none;
+    transition: all 0.3s ease;
 }
+
+/* Preview для крестика */
+.preview-x::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../assets/images/asset=x.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 110px 110px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.preview-x:hover {
+    background-color: var(--color-preview-x);
+    box-shadow: 5px 5px 0 0 var(--color-shadow-cell);
+}
+
+.preview-x:hover::before {
+    opacity: 0.4;
+}
+
+/* Preview для нолика */
+.preview-o::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../assets/images/asset=o.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 110px 110px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.preview-o:hover {
+    background-color: var(--color-preview-o);
+    box-shadow: 5px 5px 0 0 var(--color-shadow-cell);
+}
+
+.preview-o:hover::before {
+    opacity: 0.4;
+}
+
+.grid__cell--x { /* стили для крестика */ }
+.grid__cell--o { /* стили для нолика */ }
 
 .content__button {
     width: 580px;
