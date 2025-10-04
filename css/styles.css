@@ -1,14 +1,16 @@
 :root {
     --color-text-button: #212121;
-    --color-background-section: #C5B9A3;
-    --color-background-cell: #17A88B;
+    --color-text-restart: #EAEAEA;
+
     --color-shadow-cell: #212121;
     --color-border: black;
+
+    --color-background-section: #C5B9A3;
+    --color-background-restart: #0A0A0A;
+    --color-background-cell: #17A88B;
+    --color-cell-empty: #117A65;
     --color-preview-x: #B00020;
     --color-preview-o: #1E4B7A;
-    --color-bg-restart: #0A0A0A;
-    --color-text-restart: #EAEAEA;
-    --color-cell-empty: #117A65;
 }
 
 * {
