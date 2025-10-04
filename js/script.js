@@ -91,6 +91,18 @@ function handleCellClick(event) {
         currentBoardState[cellIndex] = currentPlayer
         cell.classList.add(`grid__cell--${currentPlayer.toLowerCase()}`)
 
+        if (currentPlayer === 'X') {
+            cellElements.forEach((cell, index) => {
+                if (currentBoardState[index] === '') {
+                    cell.classList.add('grid__cell--empty')
+                }
+            })
+        } else {
+            cellElements.forEach(cell => {
+                cell.classList.remove('grid__cell--empty')
+            })
+        }
+
         if (checkWin()) {
             endGame(`${currentPlayer} Win!!!`)
         } else if (checkDraw()) {
