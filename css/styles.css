@@ -6,6 +6,8 @@
     --color-border: black;
     --color-preview-x: #B00020;
     --color-preview-o: #1E4B7A;
+    --color-bg-restart: #0A0A0A;
+    --color-text-restart: #EAEAEA;
 }
 
 * {
@@ -23,6 +25,7 @@ body {
     height: 100vh;
 }
 
+/* ===== БЛОК CONTENT ===== */
 .content {
     display: flex;
     flex-direction: column;
@@ -44,6 +47,7 @@ body {
     border: 0;
 }
 
+/* ===== ИГРОВОЕ ПОЛЕ ===== */
 .content__grid {
     display: flex;
     flex-direction: column;
@@ -63,7 +67,6 @@ body {
 }
 
 .grid__cell {
-    position: relative;
     background-color: var(--color-background-cell);
     width: 144px;
     height: 144px;
@@ -74,11 +77,10 @@ body {
     transition: all 0.3s ease;
 }
 
-/* Preview для крестика */
+/* ===== PREVIEW ПРИ НАВЕДЕНИИ ===== */
 .preview-x::before {
     content: "";
-    position: absolute;
-    top: 0; left: 0;
+    display: block;
     width: 100%;
     height: 100%;
     background-image: url('../assets/images/asset=x.svg');
@@ -98,11 +100,9 @@ body {
     opacity: 0.4;
 }
 
-/* Preview для нолика */
 .preview-o::before {
     content: "";
-    position: absolute;
-    top: 0; left: 0;
+    display: block;
     width: 100%;
     height: 100%;
     background-image: url('../assets/images/asset=o.svg');
@@ -122,9 +122,48 @@ body {
     opacity: 0.4;
 }
 
-.grid__cell--x { /* стили для крестика */ }
-.grid__cell--o { /* стили для нолика */ }
+/* ===== РЕАЛЬНЫЕ КРЕСТИКИ/НОЛИКИ ===== */
+.grid__cell--x {
+    background-color: var(--color-preview-x);
+}
 
+.grid__cell--x::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-image: url('../assets/images/asset=x.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 110px 110px;
+    opacity: 1;
+}
+
+.grid__cell--x:hover {
+    box-shadow: 5px 5px 0 0 var(--color-shadow-cell);
+}
+
+.grid__cell--o {
+    background-color: var(--color-preview-o);
+}
+
+.grid__cell--o::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-image: url('../assets/images/asset=o.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 110px 110px;
+    opacity: 1;
+}
+
+.grid__cell--o:hover {
+    box-shadow: 5px 5px 0 0 var(--color-shadow-cell);
+}
+
+/* ===== БАЗОВЫЕ СТИЛИ КНОПОК ===== */
 .content__button {
     width: 580px;
     height: 104px;
@@ -140,10 +179,33 @@ body {
     margin: 0;
 }
 
-.button_type_result {
+/* ===== МОДИФИКАТОРЫ КНОПОК ===== */
+.content__button--result {
     letter-spacing: 2px;
 }
 
-.button_type_restart {
+.content__button--game_title {
     letter-spacing: 1.7px;
+}
+
+.content__button--restart {
+    letter-spacing: 1.7px;
+    background-color: var(--color-bg-restart);
+    color: var(--color-text-restart);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.content__button--restart::before {
+    content: "";
+    display: block;
+    font-weight: 700;
+    width: 46.62px;
+    height: 46.68px;
+    background-image: url(../assets/images/restart.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
