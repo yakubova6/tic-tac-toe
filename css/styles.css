@@ -195,7 +195,7 @@ html {
 
 .content__button--restart {
     letter-spacing: 1.7px;
-    background-color: var(--color-bg-restart);
+    background-color: var(--color-background-restart);
     color: var(--color-text-restart);
     display: flex;
     align-items: center;
