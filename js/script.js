@@ -38,8 +38,8 @@ function endGame(message) {
     isGameActive = false
     resultButtonElement.textContent = message
     restartButtonElement.textContent = 'Restart'
-    restartButtonElement.classList.remove('button--game-title')
-    restartButtonElement.classList.add('button--restart')
+    restartButtonElement.classList.remove('content__button--game_title')
+    restartButtonElement.classList.add('content__button--restart')
 }
 
 /** Сбрасывает игру в начальное состояние */
@@ -56,8 +56,8 @@ function resetGame() {
 
     resultButtonElement.textContent = 'Result'
     restartButtonElement.textContent = 'Tic Tac Toe'
-    restartButtonElement.classList.remove('button--restart')
-    restartButtonElement.classList.add('button--game-title')
+    restartButtonElement.classList.remove('content__button--restart')
+    restartButtonElement.classList.add('content__button--game_title')
 }
 
 // ===== ОБРАБОТЧИКИ СОБЫТИЙ =====
