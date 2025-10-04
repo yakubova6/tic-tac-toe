@@ -8,6 +8,7 @@
     --color-preview-o: #1E4B7A;
     --color-bg-restart: #0A0A0A;
     --color-text-restart: #EAEAEA;
+    --color-cell-empty: #117A65;
 }
 
 * {
@@ -208,4 +209,8 @@ body {
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
+}
+
+.grid__cell--empty {
+    background-color: var(--color-cell-empty);
 }
