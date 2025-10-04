@@ -51,7 +51,7 @@ function resetGame() {
     currentBoardState = ['', '', '', '', '', '', '', '', '']
 
     cellElements.forEach(cell => {
-        cell.classList.remove('grid__cell--x', 'grid__cell--o', 'preview-x', 'preview-o')
+        cell.classList.remove('grid__cell--x', 'grid__cell--o', 'grid__cell--empty', 'preview-x', 'preview-o')
     })
 
     resultButtonElement.textContent = 'Result'
