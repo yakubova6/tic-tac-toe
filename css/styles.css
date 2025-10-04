@@ -21,8 +21,10 @@ html, body {
     padding: 0;
 }
 
-body {
+html {
     background: linear-gradient(180deg, #FF4F9B 0%, #FF007A 100%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     height: 100vh;
 }
 
