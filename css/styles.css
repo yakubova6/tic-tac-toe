@@ -59,22 +59,27 @@ html {
     justify-content: center;
     align-items: center;
     border-radius: 15px;
-    width: 580px;
-    height: 580px;
+    width: 80%;
+    max-width: 580px;
+    min-width: 280px;
+    aspect-ratio: 1/1;
     border: 5px solid var(--color-border);
     background-color: var(--color-background-section);
     gap: 25px;
+    padding: 49px;
 }
 
 .grid__row {
     display: flex;
     gap: 25px;
+    width: 100%;
 }
 
 .grid__cell {
     background-color: var(--color-background-cell);
-    width: 144px;
-    height: 144px;
+    flex: 1;
+    aspect-ratio: 1/1;
+    min-width: 60px;
     border-radius: 16px;
     box-shadow: 10px 10px 0 0 var(--color-shadow-cell);
     border: none;
@@ -140,7 +145,7 @@ html {
     background-image: url('../assets/images/asset=x.svg');
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 110px 110px;
+    background-size: 80% 80%;
     opacity: 1;
 }
 
@@ -160,7 +165,7 @@ html {
     background-image: url('../assets/images/asset=o.svg');
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 110px 110px;
+    background-size: 80% 80%;
     opacity: 1;
 }
 
@@ -170,12 +175,23 @@ html {
 
 /* ===== БАЗОВЫЕ СТИЛИ КНОПОК ===== */
 .content__button {
-    width: 580px;
+    width: 80%;
+    max-width: 580px;
+    min-width: 280px;
     height: 104px;
     border-radius: 16px;
     border: 5px solid var(--color-border);
     background-color: var(--color-background-section);
     text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+    -moz-user-select: none;
 }
 
 .grid__cell,
@@ -217,4 +233,65 @@ html {
 
 .grid__cell--empty {
     background-color: var(--color-cell-empty);
+}
+
+/* ===== МЕДИАЗАПРОСЫ ===== */
+/* Маленькие экраны до 700px */
+@media (max-width: 700px) {
+    .grid__cell {
+        min-width: 50px;
+        box-shadow: 8px 8px 0 0 var(--color-shadow-cell);
+    }
+
+    .content__button {
+        height: 80px;
+        font-size: 32px;
+    }
+
+    .content__grid {
+        padding: 32px;
+        gap: 16px;
+    }
+
+    .grid__row {
+        gap: 16px;
+    }
+}
+
+/* Маленькие экраны до 480px */
+@media (max-width: 480px) {
+    html, body {
+        height: 100%;
+        min-height: 100%;
+        overflow-y: auto;
+    }
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        padding: 16px;
+        gap: 16px;
+    }
+
+    .grid__cell {
+        min-width: 45px;
+        box-shadow: 4px 4px 0 0 var(--color-shadow-cell);
+    }
+
+    .content__button {
+        height: 70px;
+        font-size: 24px;
+    }
+
+    .content__grid {
+        padding: 24px;
+        gap: 12px;
+    }
+
+    .grid__row {
+        gap: 12px;
+    }
 }
