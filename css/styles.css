@@ -43,27 +43,6 @@ html {
     width: 100%;
 }
 
-/* ===== БАЗОВЫЕ СТИЛИ КНОПОК ===== */
-.content__button {
-    width: calc(100% - 40px);
-    max-width: calc(
-            (clamp(80px, 15vw, 144px) * 3) +
-            (clamp(15px, 3vw, 25px) * 2) +
-            (clamp(20px, 5vw, 44px) * 2) +
-            10px
-    );
-    height: clamp(60px, 10vw, 104px);
-    border-radius: 16px;
-    border: 5px solid var(--color-border);
-    background-color: var(--color-background-section);
-    text-align: center;
-    font-size: clamp(24px, 5vw, 48px);
-    box-sizing: border-box;
-    margin: 0 auto;
-    -webkit-appearance: none;
-    -webkit-tap-highlight-color: transparent;
-}
-
 .content__visually-hidden {
     position: absolute;
     width: 1px;
@@ -192,6 +171,30 @@ html {
     margin: 0;
 }
 
+/* ===== БАЗОВЫЕ СТИЛИ КНОПОК ===== */
+.content__button {
+    width: calc(100% - 40px);
+    max-width: calc(
+            (clamp(80px, 15vw, 144px) * 3) +
+            (clamp(15px, 3vw, 25px) * 2) +
+            (clamp(20px, 5vw, 44px) * 2) +
+            10px
+    );
+    height: clamp(60px, 10vw, 104px);
+    border-radius: 16px;
+    border: 5px solid var(--color-border);
+    background-color: var(--color-background-section);
+    text-align: center;
+    font-size: clamp(24px, 5vw, 48px);
+    box-sizing: border-box;
+    margin: 0 auto;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+    -moz-user-select: none;
+}
+
 /* ===== МОДИФИКАТОРЫ КНОПОК ===== */
 .content__button--result {
     letter-spacing: 2px;
@@ -209,11 +212,6 @@ html {
     align-items: center;
     justify-content: center;
     gap: 15px;
-    -webkit-tap-highlight-color: transparent;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    user-select: none;
-    -moz-user-select: none;
 }
 
 .content__button--restart::before {
