@@ -21,6 +21,7 @@ html, body {
     font: 800 48px/100% "Inter", sans-serif;
     margin: 0;
     padding: 0;
+    -webkit-text-size-adjust: 100%;
 }
 
 html {
@@ -59,6 +60,8 @@ html {
     font-size: clamp(24px, 5vw, 48px);
     box-sizing: border-box;
     margin: 0 auto;
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .content__visually-hidden {
@@ -206,6 +209,8 @@ html {
     align-items: center;
     justify-content: center;
     gap: 15px;
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .content__button--restart::before {
