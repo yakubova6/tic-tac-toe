@@ -209,8 +209,11 @@ html {
     align-items: center;
     justify-content: center;
     gap: 15px;
-    -webkit-appearance: none;
     -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+    -moz-user-select: none;
 }
 
 .content__button--restart::before {
