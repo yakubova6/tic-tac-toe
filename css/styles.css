@@ -24,10 +24,8 @@ html, body {
 }
 
 html {
-    background: linear-gradient(180deg, #FF4F9B 0%, #FF007A 100%);
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    height: 100vh;
+    background: linear-gradient(180deg, #FF4F9B 0%, #FF007A 100%) no-repeat fixed;
+    min-height: 100vh;
 }
 
 /* ===== БЛОК CONTENT ===== */
@@ -36,8 +34,31 @@ html {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    gap: 33px;
+    margin: auto;
+    min-height: 100vh;
+    gap: clamp(20px, 5vw, 33px);
+    padding: 20px;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+/* ===== БАЗОВЫЕ СТИЛИ КНОПОК ===== */
+.content__button {
+    width: calc(100% - 40px);
+    max-width: calc(
+            (clamp(80px, 15vw, 144px) * 3) +
+            (clamp(15px, 3vw, 25px) * 2) +
+            (clamp(20px, 5vw, 44px) * 2) +
+            10px
+    );
+    height: clamp(60px, 10vw, 104px);
+    border-radius: 16px;
+    border: 5px solid var(--color-border);
+    background-color: var(--color-background-section);
+    text-align: center;
+    font-size: clamp(24px, 5vw, 48px);
+    box-sizing: border-box;
+    margin: 0 auto;
 }
 
 .content__visually-hidden {
@@ -54,32 +75,19 @@ html {
 
 /* ===== ИГРОВОЕ ПОЛЕ ===== */
 .content__grid {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(3, clamp(80px, 15vw, 144px));
+    grid-template-rows: repeat(3, clamp(80px, 15vw, 144px));
+    gap: clamp(15px, 3vw, 25px);
+    width: fit-content;
     border-radius: 15px;
-    width: 80%;
-    max-width: 580px;
-    min-width: 280px;
-    aspect-ratio: 1/1;
     border: 5px solid var(--color-border);
     background-color: var(--color-background-section);
-    gap: 25px;
-    padding: 49px;
-}
-
-.grid__row {
-    display: flex;
-    gap: 25px;
-    width: 100%;
+    padding: clamp(20px, 5vw, 44px);
 }
 
 .grid__cell {
     background-color: var(--color-background-cell);
-    flex: 1;
-    aspect-ratio: 1/1;
-    min-width: 60px;
     border-radius: 16px;
     box-shadow: 10px 10px 0 0 var(--color-shadow-cell);
     border: none;
@@ -96,7 +104,7 @@ html {
     background-image: url('../assets/images/asset=x.svg');
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 110px 110px;
+    background-size: clamp(50px, 10vw, 90px) clamp(50px, 10vw, 90px);
     opacity: 0;
     transition: opacity 0.3s ease;
 }
@@ -118,7 +126,7 @@ html {
     background-image: url('../assets/images/asset=o.svg');
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 110px 110px;
+    background-size: clamp(50px, 10vw, 90px) clamp(50px, 10vw, 90px);
     opacity: 0;
     transition: opacity 0.3s ease;
 }
@@ -135,6 +143,7 @@ html {
 /* ===== РЕАЛЬНЫЕ КРЕСТИКИ/НОЛИКИ ===== */
 .grid__cell--x {
     background-color: var(--color-preview-x);
+    padding: min(10px, 1.5vw);
 }
 
 .grid__cell--x::before {
@@ -145,7 +154,7 @@ html {
     background-image: url('../assets/images/asset=x.svg');
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 80% 80%;
+    background-size: clamp(50px, 10vw, 90px) clamp(50px, 10vw, 90px);
     opacity: 1;
 }
 
@@ -155,6 +164,7 @@ html {
 
 .grid__cell--o {
     background-color: var(--color-preview-o);
+    padding: min(10px, 1.5vw);
 }
 
 .grid__cell--o::before {
@@ -165,29 +175,13 @@ html {
     background-image: url('../assets/images/asset=o.svg');
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 80% 80%;
+    background-size: clamp(50px, 10vw, 90px) clamp(50px, 10vw, 90px);
     opacity: 1;
 }
 
 .grid__cell--o:hover {
     box-shadow: 5px 5px 0 0 var(--color-shadow-cell);
 }
-
-/* ===== БАЗОВЫЕ СТИЛИ КНОПОК ===== */
-.content__button {
-    width: 80%;
-    max-width: 580px;
-    min-width: 280px;
-    height: 104px;
-    border-radius: 16px;
-    border: 5px solid var(--color-border);
-    background-color: var(--color-background-section);
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
 
 .grid__cell,
 .content__button {
@@ -218,8 +212,8 @@ html {
     content: "";
     display: block;
     font-weight: 700;
-    width: 46.62px;
-    height: 46.68px;
+    width: clamp(30px, 5vw, 46px);
+    height: clamp(30px, 5vw, 46px);
     background-image: url(../assets/images/restart.svg);
     background-size: contain;
     background-repeat: no-repeat;
@@ -230,46 +224,23 @@ html {
     background-color: var(--color-cell-empty);
 }
 
-/* Маленькие экраны */
-@media (max-width: 700px) {
-    .grid__cell {
-        min-width: 50px;
-        box-shadow: 6px 6px 0 0 var(--color-shadow-cell);
+/* Для очень маленьких экранов */
+@media (max-width: 480px) {
+    .content__grid {
+        border-width: 3px;
+        border-radius: 10px;
     }
 
     .content__button {
-        height: 80px;
-        font-size: 24px;
-    }
-
-    .content__grid {
-        padding: 32px;
-        gap: 16px;
-    }
-
-    .grid__row {
-        gap: 16px;
+        border-width: 3px;
+        border-radius: 10px;
+        min-width: 316px;
     }
 }
 
-@media (max-width: 480px) {
-    .grid__cell {
-        min-width: 45px;
-        box-shadow: 4px 4px 0 0 var(--color-shadow-cell);
-
-    }
-
-    .content__button {
-        height: 70px;
-        font-size: 20px;
-    }
-
+@media (min-width: 1200px) {
     .content__grid {
-        padding: 30px;
-        gap: 12px;
-    }
-
-    .grid__row {
-        gap: 12px;
+        width: 580px;
+        height: 580px;
     }
 }
