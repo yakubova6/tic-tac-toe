@@ -37,5 +37,3 @@ The project is structured using **BEM methodology** for CSS, and includes clean 
 
 ## Demo
 Try the live version here: [https://yakubova6.github.io/tic-tac-toe/](https://yakubova6.github.io/tic-tac-toe/)
-=======
-# tic-tac-toe
