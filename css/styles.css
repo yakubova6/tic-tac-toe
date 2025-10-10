@@ -180,6 +180,7 @@ html {
             (clamp(20px, 5vw, 44px) * 2) +
             10px
     );
+    color: var(--color-text-button);
     height: clamp(60px, 10vw, 104px);
     border-radius: 16px;
     border: 5px solid var(--color-border);
