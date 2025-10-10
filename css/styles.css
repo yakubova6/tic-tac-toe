@@ -86,7 +86,7 @@ html {
     background-image: url('../assets/images/asset=x.svg');
     background-repeat: no-repeat;
     background-position: center;
-    background-size: clamp(50px, 10vw, 90px) clamp(50px, 10vw, 90px);
+    background-size: clamp(50px, 10vw, 110px) clamp(50px, 10vw, 110px);
     opacity: 0;
     transition: opacity 0.3s ease;
 }
@@ -108,7 +108,7 @@ html {
     background-image: url('../assets/images/asset=o.svg');
     background-repeat: no-repeat;
     background-position: center;
-    background-size: clamp(50px, 10vw, 90px) clamp(50px, 10vw, 90px);
+    background-size: clamp(50px, 10vw, 110px) clamp(50px, 10vw, 110px);
     opacity: 0;
     transition: opacity 0.3s ease;
 }
@@ -136,7 +136,7 @@ html {
     background-image: url('../assets/images/asset=x.svg');
     background-repeat: no-repeat;
     background-position: center;
-    background-size: clamp(50px, 10vw, 90px) clamp(50px, 10vw, 90px);
+    background-size: clamp(50px, 10vw, 110px) clamp(50px, 10vw, 110px);
     opacity: 1;
 }
 
@@ -157,7 +157,7 @@ html {
     background-image: url('../assets/images/asset=o.svg');
     background-repeat: no-repeat;
     background-position: center;
-    background-size: clamp(50px, 10vw, 90px) clamp(50px, 10vw, 90px);
+    background-size: clamp(50px, 10vw, 110px) clamp(50px, 10vw, 110px);
     opacity: 1;
 }
 
@@ -254,7 +254,6 @@ html {
 }
 
 @media (max-width: 360px) {
-
     body {
         min-width: 320px;
         overflow-x: auto;
