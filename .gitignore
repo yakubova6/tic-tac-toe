@@ -1,0 +1,13 @@
+# Зависимости
+node_modules/
+
+# Логи
+npm-debug.log*
+
+# Файлы ОС
+.DS_Store
+Thumbs.db
+.idea/
+
+# JSDoc документация
+out/
