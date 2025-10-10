@@ -1,7 +1,27 @@
 // ===== КОНСТАНТЫ =====
+
+/**
+ * Символ игрока X
+ * @constant {string}
+ */
 const PLAYER_X = 'X'
+
+/**
+ * Символ игрока O
+ * @constant {string}
+ */
 const PLAYER_O = 'O'
 
+/**
+ * Сообщения игры
+ * @constant {Object}
+ * @property {string} X_WIN - Сообщение о победе X
+ * @property {string} O_WIN - Сообщение о победе O
+ * @property {string} DRAW - Сообщение о ничье
+ * @property {string} RESULT - Текст кнопки результата
+ * @property {string} RESTART - Текст кнопки перезапуска
+ * @property {string} TIC_TAC_TOE - Название игры
+ */
 const MESSAGES = {
     X_WIN: 'X Win!!!',
     O_WIN: 'O Win!!!',
@@ -11,42 +31,65 @@ const MESSAGES = {
     TIC_TAC_TOE: 'Tic Tac Toe'
 }
 
-// ===== СОСТОЯНИЕ ИГРЫ =====
-let currentPlayer = PLAYER_X
-let isGameActive = true
-let currentBoardState = [
-    '', '', '',
-    '', '', '',
-    '', '', ''
-]
-
-// ===== DOM ЭЛЕМЕНТЫ =====
-const cellElements = document.querySelectorAll('[data-js-cell]')
-const resultButtonElement = document.querySelector('[data-js-result]')
-const restartButtonElement = document.querySelector('[data-js-restart]')
-
-// ===== КОНСТАНТЫ =====
+/**
+ * Выигрышные комбинации для игры в крестики-нолики
+ * @constant {Array<Array<number>>}
+ */
 const WIN_PATTERNS = [
     [0, 1, 2], [3, 4, 5], [6, 7, 8], // горизонтали
     [0, 3, 6], [1, 4, 7], [2, 5, 8], // вертикали
     [0, 4, 8], [2, 4, 6]             // диагонали
 ]
 
+// ===== СОСТОЯНИЕ ИГРЫ =====
+
+/** @type {string} Текущий игрок (X или O) */
+let currentPlayer = PLAYER_X
+
+/** @type {boolean} Активна ли игра */
+let isGameActive = true
+
+/**
+ * Текущее состояние игрового поля
+ * @type {Array<string>}
+ */
+let currentBoardState = ['', '', '', '', '', '', '', '', '']
+
+// ===== DOM ЭЛЕМЕНТЫ =====
+
+/** @type {NodeList} Все клетки игрового поля */
+const cellElements = document.querySelectorAll('[data-js-cell]')
+
+/** @type {HTMLElement} Кнопка отображения результата */
+const resultButtonElement = document.querySelector('[data-js-result]')
+
+/** @type {HTMLElement} Кнопка перезапуска игры */
+const restartButtonElement = document.querySelector('[data-js-restart]')
+
 // ===== ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ =====
 
-/** Проверяет победу текущего игрока */
+/**
+ * Проверяет победу текущего игрока
+ * @returns {boolean} true если текущий игрок выиграл, иначе false
+ */
 const checkWin = () => {
     return WIN_PATTERNS.some(pattern => {
         return pattern.every(index => currentBoardState[index] === currentPlayer)
     })
 }
 
-/** Проверяет ничью (все клетки заполнены) */
+/**
+ * Проверяет ничью (все клетки заполнены)
+ * @returns {boolean} true если все клетки заполнены и нет победителя
+ */
 const checkDraw = () => {
     return currentBoardState.every(cell => cell !== '')
 }
 
-/** Завершает игру с сообщением */
+/**
+ * Завершает игру с сообщением
+ * @param {string} message - Сообщение для отображения
+ */
 function endGame(message) {
     isGameActive = false
     resultButtonElement.textContent = message
@@ -55,7 +98,9 @@ function endGame(message) {
     restartButtonElement.classList.add('content__button--restart')
 }
 
-/** Сбрасывает игру в начальное состояние */
+/**
+ * Сбрасывает игру в начальное состояние
+ */
 function resetGame() {
     if (restartButtonElement.textContent === MESSAGES.TIC_TAC_TOE) return
 
@@ -75,7 +120,10 @@ function resetGame() {
 
 // ===== ОБРАБОТЧИКИ СОБЫТИЙ =====
 
-/** Обрабатывает наведение на клетку */
+/**
+ * Обрабатывает наведение курсора на клетку
+ * @param {MouseEvent} event - Событие мыши
+ */
 function handleMouseEnter(event) {
     const cell = event.currentTarget
     const cellIndex = parseInt(cell.getAttribute('data-js-cell'))
@@ -87,13 +135,19 @@ function handleMouseEnter(event) {
     }
 }
 
-/** Обрабатывает уход курсора с клетки */
+/**
+ * Обрабатывает уход курсора с клетки
+ * @param {MouseEvent} event - Событие мыши
+ */
 function handleMouseLeave(event) {
     const cell = event.currentTarget
     cell.classList.remove('preview-x', 'preview-o')
 }
 
-/** Обрабатывает клик по клетке */
+/**
+ * Обрабатывает клик по клетке
+ * @param {MouseEvent} event - Событие клика
+ */
 function handleCellClick(event) {
     const cell = event.currentTarget
     const cellIndex = parseInt(cell.getAttribute('data-js-cell'))
@@ -127,10 +181,19 @@ function handleCellClick(event) {
 }
 
 // ===== ИНИЦИАЛИЗАЦИЯ =====
-cellElements.forEach(cell => {
-    cell.addEventListener('mouseenter', handleMouseEnter)
-    cell.addEventListener('mouseleave', handleMouseLeave)
-    cell.addEventListener('click', handleCellClick)
-})
 
-restartButtonElement.addEventListener('click', resetGame)
+/**
+ * Инициализирует игровое поле, добавляя обработчики событий
+ */
+function initializeGame() {
+    cellElements.forEach(cell => {
+        cell.addEventListener('mouseenter', handleMouseEnter)
+        cell.addEventListener('mouseleave', handleMouseLeave)
+        cell.addEventListener('click', handleCellClick)
+    })
+
+    restartButtonElement.addEventListener('click', resetGame)
+}
+
+// Запуск игры
+initializeGame()
