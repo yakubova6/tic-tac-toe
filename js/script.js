@@ -1,5 +1,18 @@
+// ===== КОНСТАНТЫ =====
+const PLAYER_X = 'X'
+const PLAYER_O = 'O'
+
+const MESSAGES = {
+    X_WIN: 'X Win!!!',
+    O_WIN: 'O Win!!!',
+    DRAW: 'Draw!!!',
+    RESULT: 'Result',
+    RESTART: 'Restart',
+    TIC_TAC_TOE: 'Tic Tac Toe'
+}
+
 // ===== СОСТОЯНИЕ ИГРЫ =====
-let currentPlayer = 'X'
+let currentPlayer = PLAYER_X
 let isGameActive = true
 let currentBoardState = [
     '', '', '',
@@ -37,25 +50,25 @@ const checkDraw = () => {
 function endGame(message) {
     isGameActive = false
     resultButtonElement.textContent = message
-    restartButtonElement.textContent = 'Restart'
+    restartButtonElement.textContent = MESSAGES.RESTART
     restartButtonElement.classList.remove('content__button--game_title')
     restartButtonElement.classList.add('content__button--restart')
 }
 
 /** Сбрасывает игру в начальное состояние */
 function resetGame() {
-    if (restartButtonElement.textContent === 'Tic Tac Toe') return
+    if (restartButtonElement.textContent === MESSAGES.TIC_TAC_TOE) return
 
     isGameActive = true
-    currentPlayer = 'X'
+    currentPlayer = PLAYER_X
     currentBoardState = ['', '', '', '', '', '', '', '', '']
 
     cellElements.forEach(cell => {
         cell.classList.remove('grid__cell--x', 'grid__cell--o', 'grid__cell--empty', 'preview-x', 'preview-o')
     })
 
-    resultButtonElement.textContent = 'Result'
-    restartButtonElement.textContent = 'Tic Tac Toe'
+    resultButtonElement.textContent = MESSAGES.RESULT
+    restartButtonElement.textContent = MESSAGES.TIC_TAC_TOE
     restartButtonElement.classList.remove('content__button--restart')
     restartButtonElement.classList.add('content__button--game_title')
 }
@@ -68,7 +81,7 @@ function handleMouseEnter(event) {
     const cellIndex = parseInt(cell.getAttribute('data-js-cell'))
 
     if (isGameActive && currentBoardState[cellIndex] === '') {
-        currentPlayer === 'X'
+        currentPlayer === PLAYER_X
             ? cell.classList.add('preview-x')
             : cell.classList.add('preview-o')
     }
@@ -91,7 +104,7 @@ function handleCellClick(event) {
         currentBoardState[cellIndex] = currentPlayer
         cell.classList.add(`grid__cell--${currentPlayer.toLowerCase()}`)
 
-        if (currentPlayer === 'X') {
+        if (currentPlayer === PLAYER_X) {
             cellElements.forEach((cell, index) => {
                 if (currentBoardState[index] === '') {
                     cell.classList.add('grid__cell--empty')
@@ -104,11 +117,11 @@ function handleCellClick(event) {
         }
 
         if (checkWin()) {
-            endGame(`${currentPlayer} Win!!!`)
+            endGame(currentPlayer === PLAYER_X ? MESSAGES.X_WIN : MESSAGES.O_WIN)
         } else if (checkDraw()) {
-            endGame('Draw!!!')
+            endGame(MESSAGES.DRAW)
         } else {
-            currentPlayer = currentPlayer === 'X' ? 'O' : 'X'
+            currentPlayer = currentPlayer === PLAYER_X ? PLAYER_O : PLAYER_X
         }
     }
 }
